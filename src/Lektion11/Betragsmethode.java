@@ -21,13 +21,13 @@ public class Betragsmethode {
     }
     public static short betragsMethode(short nummer){
         if(nummer < 0){
-            nummer = (short) (nummer*(-1));
+            nummer = (short)(nummer*(-1));
         }
         return nummer;
     }
     public static long betragsMethode(long nummer){
         if(nummer < 0){
-            nummer = (long) (nummer*(-1.0));
+            nummer = (nummer*(-1));
         }
         return nummer;
     }

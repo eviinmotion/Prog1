@@ -12,53 +12,51 @@ public class Ticker {
         else{
             this.groesse = groesse;
         }
-        this.nachricht = new char[groesse];
-        for(int i=0; i<groesse; i++){
-            this.nachricht[i] = ' ';
-        }
+        this.nachricht = new char[this.groesse];
+        resetNachricht(' ');
     }
     public int getGroesse(){
         return this.groesse;
     }
-    public String setNachricht(char[] nachricht) {
-        char[] input = nachricht;
-
-        if (input.length < this.groesse) {
-            for(int i=0; i<this.groesse; i++){
-                input[i] = this.nachricht[i];
-            }
-            for (int i = 0; i < input.length; i++) {
-                if (input[i] == ' ') {
-                    input[i] = '+';
-                }
+    public void setNachricht(char[] nachricht) {
+        for (int i = 0; i < this.groesse; i++) {
+            if (i < nachricht.length) {
+                this.nachricht[i] = nachricht[i];
+            } else {
+                this.nachricht[i] = '+';
             }
         }
-        if (input.length > this.groesse) {
-            try {
-                for (int i = 0; i < input.length; i++) {
-                    input[i] = (char) nachricht.length;
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                return input.toString();
-            }
-
-        }
-        return input.toString();
     }
     public char[] getNachricht(){
-        return this.nachricht;
-    }
-    public String resetNachricht(char zeichen){
-        char[] input = getNachricht();
-        for(int i=0; i<input.length; i++){
-            input[i] = zeichen;
+        char[] kopieNachricht = new char[this.groesse];
+        for(int i=0; i<this.groesse; i++){
+            kopieNachricht[i] = this.nachricht[i];
         }
-        return input.toString();
+        return kopieNachricht;
     }
-    public String resetNachricht(){
-        return resetNachricht('+');
+    public void resetNachricht(char zeichen){
+        for(int i=0; i<this.nachricht.length; i++){
+            this.nachricht[i] = zeichen;
+        }
     }
-    public String rotateNachricht(char zeichen){
-        
+    public void resetNachricht(){
+        resetNachricht('+');
+    }
+    public void rotateNachricht(int distance){
+        char[] nachricht = this.nachricht;
+        if(distance <= 0 || distance >= this.groesse){
+            return;
+        }
+        for(int i=0; i<distance; i++){
+            char first = nachricht[0];
+            for(int j=0; j<this.groesse-1; j++){
+                nachricht[j] = nachricht[j+1];
+            }
+            nachricht[this.groesse-1] = first;
+        }
+    }
+    public char[] stringToCharArray(String nachricht){
+        char[] input = nachricht.toCharArray();
+        return input;
     }
 }

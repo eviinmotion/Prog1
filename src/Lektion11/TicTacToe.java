@@ -46,9 +46,8 @@ public class TicTacToe {
 
     }
     public static boolean randomBoolean(){
-        Random random  = new Random();
+        int zufallsZahl  = (int)(Math.random()*2);
         boolean out;
-        int zufallsZahl = random.nextInt(20)+1;
         if(zufallsZahl % 2 == 0){
             out=true;
         }
