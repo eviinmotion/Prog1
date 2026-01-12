@@ -2,9 +2,9 @@ package Lektion13;
 
 public class Schachbrett {
     //markiert alle bedrohten Felder
-    boolean[][] brett = new boolean[8][8];
+    private boolean[][] brett = new boolean[8][8];
 
-    public Schachbrett(){}
+    public Schachbrett(){} //setzt brett auf null
 
     public boolean[][] getBrett() {
         return brett;
