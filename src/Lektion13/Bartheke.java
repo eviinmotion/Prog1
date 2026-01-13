@@ -50,4 +50,13 @@ public class Bartheke {
         }
         return null; //wenn nicht gefunden;
     }
+    public String toString(){
+        String output = "";
+        Getraenk current = root;
+        while(current != null){
+            output = output + current.getName() + "\n";
+            current = current.next;
+        }
+        return output;
+    }
 }
