@@ -1,5 +1,7 @@
 package Lektion13;
 
+import java.util.Scanner;
+
 public class SpaceInvaders {
     private char[][] spielfeld = new char[5][8];
     private char raumschiff = 'v';
@@ -61,7 +63,7 @@ public class SpaceInvaders {
         String output = "";
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 8; j++){
-                output += spielfeld[i][j];
+                output += spielfeld[i][j]+" ";
             }output += "\n";
         }
         return output;
@@ -70,11 +72,21 @@ public class SpaceInvaders {
 
     public static void main(String[] args){
         SpaceInvaders newGame = new SpaceInvaders();
-        newGame.printGame();
-        newGame.bewege("a");
-        newGame.printGame();
-        newGame.bewege("d");
-        newGame.printGame();
+        boolean done = false;
+        Scanner input = new Scanner(System.in);
+        System.out.println(newGame.toString());
+        while(!done){
+            System.out.println("MAKE YOUR MOVE"+"\n"+"enter a / d");
+            String move = input.nextLine();
+            newGame.bewege(move);
+            newGame.printGame();
+            System.out.println("HAD ENOUGH?"+"\n"+" y / n");
+            move = input.nextLine();
+            if(move.equals("y")){
+                done = true;
+            }
+        }
+        System.out.println("GAME OVER");
     }
 
 }
