@@ -35,7 +35,7 @@ public class Fahrstrecke {
         fahrstrecke.einfuegen(kitzingen);
         fahrstrecke.einfuegen(neustadt);
         fahrstrecke.einfuegen(nuernberg);
-        System.out.println("Die gesamte Fahrtstrecke beträgt "+fahrstrecke.gesamteStrecke());
+        System.out.println("Die gesamte Fahrtstrecke beträgt "+fahrstrecke.gesamteStrecke()+" km.");
 
     }
 }
